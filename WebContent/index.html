@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<script src="js/common/jquery.js"></script>
+<script src="js/common/angular.js"></script>
+<script src="js/common/ngStorage.min.js"></script>
+<script src="js/common/angular-route.js"></script>
+<script src="js/common/ui-bootstrap-tpls-2.5.0.min.js"></script>
+
+<script src="js/custom/controller.js"></script>
+
+
+<title>FiveY Ventures</title>
+
+<link rel="stylesheet" href="css/common/bootstrap.min.css">
+<link rel="stylesheet" href="css/common/font-awesome.min.css">
+<link rel="stylesheet" href="css/custom/style.css">
+
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+</head>
+<body ng-app="fiveyVentures" ng-controller="indexController" ng-init = "fillYears();populateTeams();populateTeamMembers(selectedTeam);populateTable(calendarForm);">
+	
+	<div class="form-group col-md-12" ng-show="message.length!=0">
+		<div class="col-md-2"></div>
+		<div class=" col-md-8 alert alert-success" id = "alert-danger">
+			{{message}}
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	<div class="form-group col-md-12">
+		<div class="col-md-2 teamsSection ">
+			<div class="header">Available Teams</div>
+			<div ng-repeat="team in teams">
+				<button type="button" class="teamButton btn btn-primary" ng-click="populateTeamMembers(team);populateTable(calendarForm,team)">{{team}}</button>
+			</div>
+		</div>
+		<div class="col-md-10">
+			<TABLE class="table" >
+				<TR>
+				    <TD COLSPAN=7>
+				    <FORM name="calendarForm" class="form-inline">
+				       <SELECT class="form-control " ng-model="selectedMonth"  ng-options="c.month for c in chooseMonth" ng-change="populateTable(calendarForm,selectedTeam)"></SELECT>
+				    	<SELECT class="form-control" ng-model="selectedYear"  ng-options="c for c in chooseYear" ng-change="populateTable(calendarForm,selectedTeam)"></SELECT>
+				    </FORM>
+				   </TD>
+				</TR>
+				<TR>
+				    <TH ID="tableHeader" COLSPAN=7></TH>
+				</TR>
+				<TR><TH>Sun</TH><TH>Mon</TH><TH>Tue</TH><TH>Wed</TH><TH>Thu</TH><TH>Fri</TH><TH>Sat</TH></TR>
+				<TBODY ID="tableBody"></TBODY>
+				
+				
+			</TABLE>
+					
+		</div>
+	</div>
+	
+
+</body>
+</html>

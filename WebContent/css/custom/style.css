@@ -1,0 +1,46 @@
+body{
+	text-align:center;
+}
+table{
+	text-align:center;
+	
+}
+td{
+	height:100px;
+}
+th {
+    text-align: center;
+}
+.header{
+	font-weight:bold;
+	padding-top: 20px;
+    padding-bottom: 10px;	
+}
+.flexDisplay{
+	display:flex;
+}
+.assignedNames{
+	padding: 1px;
+    height: 22px;
+    min-width: 1px;
+    width: fit-content;
+    margin: 1px;
+}
+.nameAlign{
+	display:flex;
+	max-width: 120px;
+    flex-wrap: wrap;
+}
+i.fa.fa-times {
+    cursor: pointer;
+}
+.nameSelect{
+	width:120px;
+}
+.teamsSection {
+    margin-top: 100px;
+}
+.teamButton{
+	width: 80%;
+    margin-bottom: 12px;
+}
